@@ -1,6 +1,6 @@
-import React from 'react'
-const withFilteredProps = (BaseComponent) => 
-({list,genre}) => {
+import React from 'react';
+
+const withFilteredProps = (BaseComponent) => ({list, genre}) => {
     const filteredList = genre ? list.filter((artist) => artist.genre === genre) : list
     return <BaseComponent artistList={filteredList}/>
 }
@@ -21,7 +21,6 @@ const DisplayList = ({artistList}) => {
     )
 }
 
+const HOC = withFilteredProps(DisplayList);
 
-const HOC = withFilteredProps(DisplayList)
-
-export default HOC
+export default HOC;
